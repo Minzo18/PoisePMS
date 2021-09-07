@@ -16,13 +16,14 @@ public class Project {
 	
 	// Method to update deadline
 	/**
-	 * Method to update a projects deadline
-	 * Requests new deadline in the format DD/MM/YYYY
-	 * Deadline for the project is updated in the database
-	 * @param projectNum is the project number of the project that will be updated
-	 * @param statement is for sending queries to the database
+	 * Method to update a projects deadline.
+	 * Requests new deadline in the format DD/MM/YYYY.
+	 * Deadline for the project is updated in the database.
+	 * 
+	 * @param projectNum 			is the project number of the project that will be updated
+	 * @param statement 			is for sending queries to the database
+	 * @exception 						if date format is incorrect
 	 * @throws SQLException
-	 * @exception if date format is incorrect
 	 */
 	public static void deadlineUpdate(int projectNum, Statement statement) throws SQLException{
 		Date newDeadline = null;
@@ -53,16 +54,17 @@ public class Project {
 	
 	// Method to update total paid
 	/**
-	 * Method to update the total paid
+	 * Method to update the total paid.
 	 * The user is requested to enter the new total paid.
 	 * If 0 is entered, the request is cancelled.
 	 * If the amount is less than the total paid or greater than the total cost, the program will 
 	 * request the user to enter it again.
-	 * The projects total paid will be update in the database if the input is valid
-	 * @param projectNum is the project number of the project that will be updated
-	 * @param statement is for sending queries to the database
+	 * The projects total paid will be update in the database if the input is valid.
+	 * 
+	 * @param projectNum 			is the project number of the project that will be updated
+	 * @param statement 			is for sending queries to the database
+	 * @exception 						if the user enter an invalid character for type double
 	 * @throws SQLException 
-	 * @exception if the user enter an invalid character for type double
 	 */
 	public static void totalPaidUpdate(int projectNum, Statement statement) throws SQLException {
 		while (true) {
@@ -111,9 +113,10 @@ public class Project {
 	/**
 	 * This method is used to add a new project to the database.
 	 * The user is requested to enter the details of the project to create a new project.
-	 * @param statement is for sending queries to the database
+	 * 
+	 * @param statement 			is for sending queries to the database
+	 * @return 								a new project object containing the details inputed.
 	 * @throws SQLException
-	 * @return a new project object containing the details inputed.
 	 */
 	public static void AddProject(Statement statement) throws SQLException {
 
@@ -238,7 +241,8 @@ public class Project {
 	 * This method displays a list of all incomplete projects.
 	 * The method queries the projects table in the database and retrieves projects where the status 
 	 * is 'Incomplete'. The project number, name and deadline of each of these projects are displayed.
-	 * @param statement is for sending queries to the database
+	 * 
+	 * @param statement 			is for sending queries to the database
 	 * @throws SQLException
 	 */
 	public static void incompleteProjects(Statement statement) throws SQLException {
@@ -262,7 +266,8 @@ public class Project {
 	 * The method queries the projects table in the database and retrieves projects where the deadline 
 	 * has passed. The project number, name, deadline and status of each of these projects are 
 	 * displayed.
-	 * @param statement is for sending queries to the database
+	 * 
+	 * @param statement 			is for sending queries to the database
 	 * @throws SQLException
 	 */
 	public static void delayedProjects (Statement statement) throws SQLException {
@@ -297,15 +302,16 @@ public class Project {
 	
 	// Method to mark a project as finalized
 	/** 
-	 * This method is used to finalize a project.
+	 * This method finalizes a project.
 	 * The method will change the status of the project to "Finalized on YYYY-MM-DD", where 
 	 * YYYY-MM-DD is the date on which it was finalized. If the project has not been fully paid for,
 	 * an invoice will be generated showing the customers details and the amount outstanding. 
 	 * The details of the project will also be saved to a text file "Completed Project - Project Name".
-	 * @param projectNum is the project number of the project that will be updated
-	 * @param statement is for sending queries to the database
+	 * 
+	 * @param projectNum 			is the project number of the project that will be updated
+	 * @param statement 			is for sending queries to the database
+	 * @exception 						thrown if an error occurs in writing to the text file.
 	 * @throws SQLException 
-	 * @exception thrown if an error occurs in writing to the text file.
 	 */
 	public static void projectFinalized(int projectNum, Statement statement) throws SQLException {
 		
@@ -375,11 +381,12 @@ public class Project {
 	 * Searches for a project by project number.
 	 * User is requested to enter a project number. The method queries the projects table in the 
 	 * database to find the matching project number. If it does not find the project, it displays a 
-	 * message requesting the number again.  
-	 * @param statement is for sending queries to the database
-	 * @return a project number
+	 * message requesting the number again.
+	 *   
+	 * @param statement 			is for sending queries to the database
+	 * @return 								a project number
+	 * @exception 						thrown when an invalid character is inputed for type integer
 	 * @throws SQLException
-	 * @exception thrown when an invalid character is inputted for type integer
 	 */
 	public static int	projectNumSearch(Statement statement) throws SQLException {
 			
@@ -427,9 +434,10 @@ public class Project {
 	 * Searches for a project by project name.
 	 * User is requested to enter a project name. The method queries the projects table in the 
 	 * database to find the matching project name. If it does not find the project, it displays a 
-	 * message requesting the name again.  
-	 * @param statement is for sending queries to the database
-	 * @return a project number
+	 * message requesting the name again.
+	 *   
+	 * @param statement 			is for sending queries to the database
+	 * @return 								a project number
 	 * @throws SQLException
 	 */
 	public static int projectNameSearch(Statement statement) throws SQLException {
@@ -470,13 +478,14 @@ public class Project {
 		
 	// Method to select a project from list of all projects
 	/**
-	 * Creates a list of all the project allowing the user to select a project
+	 * Creates a list of all the project allowing the user to select a project.
 	 * A numbered list of all the projects is created and using the integerInput() method, the user 
 	 * selects a project.
-	 * @see integerInput()
-	 * @param statement is for sending queries to the database
-	 * @return a project number
+	 * 
+	 * @param statement 			is for sending queries to the database
+	 * @return 								a project number
 	 * @throws SQLException
+	 * @see integerInput()
 	 */
 	public static int projectSelect(Statement statement) throws SQLException{
 		// String builder
@@ -506,14 +515,15 @@ public class Project {
 	
 	// Method to create ID numbers for projects, customers, etc.
 	/**
-	 * Creates ID numbers for projects and role players
+	 * Creates ID numbers for projects and role players.
 	 * The ID numbers are unique identifiers to be used in the tables.
 	 * The method checks how many non null rays exist to determine the next number. The number is then
-	 * attached to the role players identifier (e.g. CS for customer, A for architect, etc.)
-	 * @param tableName name of the table for which a new ID is created
-	 * @param identifier used to identify different role players
-	 * @param statement is for sending queries to the database
-	 * @return string ID number for the new project or role player
+	 * attached to the role players identifier (for example CS for customer, A for architect, etc.)
+	 * 
+	 * @param tableName 			name of the table for which a new ID is created
+	 * @param identifier 			used to identify different role players
+	 * @param statement 			is for sending queries to the database
+	 * @return 								string ID number for the new project or role player
 	 * @throws SQLException
 	 */
 	public static String idNum(String tableName, String identifier, Statement statement) throws SQLException {
@@ -527,15 +537,16 @@ public class Project {
 	
 	// Method to display projects
 	/**
-	 * Creates a string to displays a projects details including all role players information
+	 * Creates a string to displays a projects details including all role players information.
 	 * The method queries the database to obtain the project information and then uses the
 	 * displayPerson method to obtain each role players information. The information is then saved to 
 	 * a string variable.
-	 * @see displayPerson()
-	 * @param projNum project number of the project that will be displayed.
-	 * @param statement statement is for sending queries to the database
-	 * @return a string containing the project information
+	 * 
+	 * @param projNum 				project number of the project that will be displayed.
+	 * @param statement 			statement is for sending queries to the database
+	 * @return 								a string containing the project information
 	 * @throws SQLException
+	 * @see displayPerson()
 	 */
 	public static String displayProject(int projNum, Statement statement) throws SQLException {
 		// Get project information

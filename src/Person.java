@@ -1,8 +1,9 @@
 import java.util.Scanner;
 import java.sql.*;
 /**
- * The Person class creates a person object that stores all the details of each role player related to
- * a project.
+ * The Person class creates a person object that stores all the details of each role player related 
+ * to a project.
+ * 
  * @author Minal
  * @version 2.0
  */
@@ -47,7 +48,8 @@ public class Person {
 	
 	// toString Method
 	/**
-	 * To String method creates a string to display the person details
+	 * This method creates a string to display the person details.
+	 * 
 	 * @return String value listing all details
 	 */
 	public String toString() {
@@ -83,10 +85,12 @@ public class Person {
 	/**
 	 * This method is used to create a new person object and add the person to the database.
 	 * The user is requested to enter the details of the person to create a new person. 
-	 * @param tableName name of the table to which the person will be added
-	 * @param identifier used to identify different role players (e.g. customers, architects, etc.)
-	 * @param statement is for sending queries to the database
-	 * @return a new person object containing the details inputed.
+	 * 
+	 * @param tableName 			name of the table to which the person will be added
+	 * @param identifier 			used to identify different role players (for example customers, 
+	 * 												architects, etc.)
+	 * @param statement 			is for sending queries to the database
+	 * @return 								a new person object containing the details inputed.
 	 * @throws SQLException
 	 */
 	public static Person AddPerson(String tableName, String identifier, Statement statement) throws SQLException {
@@ -138,11 +142,12 @@ public class Person {
 	
 	// Method to update person details
 	/**
-	 * Updates the contact details of a person
+	 * Updates the contact details of a person.
 	 * The user selects which person and then which details are going to be updated. The user then 
 	 * enters the new details which are saved to the database.
-	 * @param projectNum is the project number of the project that will be updated
-	 * @param statement is for sending queries to the database
+	 * 
+	 * @param projectNum 			is the project number of the project that will be updated
+	 * @param statement 			is for sending queries to the database
 	 * @throws SQLException
 	 */
 	public static void detailsUpdate(int projectNum, Statement statement) throws SQLException {
@@ -300,11 +305,12 @@ public class Person {
 	 * Creates a string to displays a persons details.
 	 * The method queries the database to obtain the persons information. The information is then 
 	 * saved to a string variable.
-	 * @param tableName name of the table 
-	 * @param columnName name of the ID column in the table
-	 * @param id identity number of the person whose information is to be displayed
-	 * @param statement is for sending queries to the database
-	 * @return a string containing the persons information
+	 * 
+	 * @param tableName 			name of the table 
+	 * @param columnName 			name of the ID column in the table
+	 * @param id 							identity number of the person whose information is to be displayed
+	 * @param statement 			is for sending queries to the database
+	 * @return 								a string containing the persons information
 	 * @throws SQLException
 	 */
 	public static String displayPerson(String tableName, String columnName, String id, Statement statement) throws SQLException {

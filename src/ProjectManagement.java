@@ -8,6 +8,7 @@ import java.util.*;
  * projects and overdue projects. When a project is completed, the project is marked as finalized 
  * and the details of the project are store in a text file. All information relating to project is
  * stored in a database called PoisePMS.
+ * 
  * @author Minal
  * @version 2.0
  */
@@ -155,7 +156,6 @@ public class ProjectManagement {
 			// Catch block in case of database errors
 			} catch (SQLException e) {
 				System.out.println("An error with the database has occured.");
-				e.printStackTrace();
 				continue;
 			}
 		}
@@ -166,10 +166,11 @@ public class ProjectManagement {
 	 * Method to input an integer to select an item from a list
 	 * This method is used to display a list of items for a user to choose from and
 	 * take in the users input.
-	 * @param request is a message showing the request and list asking the users to select an option 
-	 * from the list
-	 * @param maxNumber is the amount of items in the list
-	 * @return the integer that was selected by the user
+	 * 
+	 * @param request 		is a message showing the request and list asking the users to select an option 
+	 * 										from the list
+	 * @param maxNumber 	is the amount of items in the list
+	 * @return 						the integer that was selected by the user
 	 */
 	public static int integerInput(String request, int maxNumber) {
 		while (true) {
